@@ -108,7 +108,7 @@ setup() {
 
 .fullwidthbanner-container {
   position: relative; /* 确保伪元素定位基于容器 */
-  background: url('img/p21/bg.webp') no-repeat center center; /* 背景图片 */
+  background: url('/img/p21/bg.webp') no-repeat center center; /* 背景图片 */
   background-size: cover; /* 背景图片覆盖 */
 }
 
