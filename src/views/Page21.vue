@@ -15,7 +15,7 @@ setup() {
   const carouselRef = ref(null);
   const showButton = ref(true);
   const showOverlayImages = ref(false);
-  const modalImageSrc = ref('/img/p13/bigmap.webp');
+  const modalImageSrc = ref('/img/p21/bigmap.webp');
 
   const initCarousel = () => {
     nextTick(() => {
@@ -55,7 +55,7 @@ setup() {
   };
 
   const openModal = (imageType) => {
-    modalImageSrc.value = '/img/p21/bigmap.png';
+    modalImageSrc.value = '/img/p21/bigmap.webp';
 
     Swal.fire({
       imageUrl: modalImageSrc.value,
