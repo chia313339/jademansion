@@ -73,12 +73,11 @@ export default {
                     subLabel: '|',
                     link: '/page30', // 不用於無 subItems 的情況
                     subItems: [
-                        // { label: '建築團隊', link: '/page31' },
-                        // { label: '建築外觀設計', link: '/page32' },
-                        // { label: '建築細部美學', link: '/page33' },
-                        // { label: '建築燈光設計', link: '/page34' },
-                        // { label: '建築景觀美學', link: '/page35' },
-                        // { label: '結構工程設計', link: '/page36' },
+                        { label: '鴻祥機構', link: '/page31' },
+                        { label: '邑相聯合建築', link: '/page32' },
+                        { label: '福研設計', link: '/page33' },
+                        { label: '有愉工程顧問', link: '/page34' },
+                        { label: '信義代銷', link: '/page35' },
                     ],
                 },
                 {
@@ -86,10 +85,8 @@ export default {
                     subLabel: '|',
                     link: '/page41', // 直接鏈接
                     subItems: [
-                        // { label: '庭園規劃', link: '/page41' },
-                        // { label: '公設規劃', link: '/page42' },
-                        // { label: '平面規劃', link: '/page43' },
-                        // { label: '空間特色', link: '/page44' },
+                        { label: '平面規劃', link: '/page43' },
+                        { label: '空間特色', link: '/page44' },
                     ],
                 },
                 {

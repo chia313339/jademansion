@@ -6,21 +6,39 @@
         </svg>
       </router-link>
     <div class="content">
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img src="/img/p32/001.png" class="d-block w-100" alt="...">
-            </div>
+      <img src="/img/p32/bg.png" alt="" class="bg">
+      <div class="overlay">
+        <div class="left">
+          <!-- <img src="/img/p21/text.png" alt="" class="text_img"> -->
         </div>
-        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <div class="right">
+          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="/img/p32/001.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/img/p32/002.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/img/p32/003.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/img/p32/004.png" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-        </button> -->
+          </button>
+          </div>
         </div>
+      </div>
+
     </div>
   </div>
 </template>

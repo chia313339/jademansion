@@ -1,6 +1,8 @@
 <template>
   <div class="fullwidthbanner-container">
-    <button class="centered-button" @click="openModal()">了解更多</button>
+    <div class="content">
+      <button class="centered-button" @click="openModal()">了解更多</button>
+    </div>
   </div>
 </template>
 
@@ -17,45 +19,21 @@ setup() {
   const showOverlayImages = ref(false);
   const modalImageSrc = ref('/img/p21/bigmap.webp');
 
-  const initCarousel = () => {
-    nextTick(() => {
-      const content = document.querySelector('.content');
-      if (content) {
-        content.style.opacity = 0;
-        setTimeout(() => {
-          content.style.opacity = 1;
-        }, 100);
-      }
-
-      const carouselElement = document.getElementById('carouselExample');
-      if (carouselElement) {
-        if (carouselRef.value) {
-          carouselRef.value.dispose();
+  const initContent = () => {
+      nextTick(() => {
+        const content = document.querySelector('.content');
+        if (content) {
+          content.style.opacity = 0;
+          setTimeout(() => {
+            content.style.opacity = 1;
+          }, 100);
         }
-        try {
-          carouselRef.value = new Carousel(carouselElement, {
-            interval: 5000000,
-            wrap: true
-          });
-          carouselRef.value.to(0);
-
-          // 監聽輪播圖切換事件
-          carouselElement.addEventListener('slide.bs.carousel', (event) => {
-            showButton.value = event.to === 0; // 只在第一張圖片顯示按鈕
-            showOverlayImages.value = event.to === 3; // 只在第四張圖片顯示覆蓋圖片
-          });
-
-        } catch (error) {
-          console.error('Error initializing carousel:', error);
-        }
-      } else {
-        console.warn('Carousel element not found');
-      }
-    });
-  };
+      });
+    };
+    onMounted(initContent);
 
   const openModal = (imageType) => {
-    modalImageSrc.value = '/img/p21/bigmap.webp';
+    modalImageSrc.value = '/img/p21/bigmap.png';
 
     Swal.fire({
       imageUrl: modalImageSrc.value,
@@ -68,30 +46,13 @@ setup() {
       focusConfirm: false,
       customClass: {
     popup: 'custom-modal-popup',
-    image: 'custom-modal-image'
+    image: 'custom-modal-image',
+    closeButton: 'custom-close-button'
   },
       backdrop: `rgba(0,0,0,0.8)`
     });
   };
 
-  onMounted(() => {
-    nextTick(() => {
-      initCarousel();
-    });
-  });
-
-  onBeforeRouteUpdate((to, from, next) => {
-    nextTick(() => {
-      initCarousel();
-    });
-    next();
-  });
-
-  onBeforeUnmount(() => {
-    if (carouselRef.value) {
-      carouselRef.value.dispose();
-    }
-  });
 
   return {
     openModal,
@@ -125,14 +86,7 @@ setup() {
 }
 
 .content {
-  height: 100vh; 
-  width: 95vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
 }
 
 .carousel-item img {
@@ -207,22 +161,21 @@ setup() {
 }
 
 .custom-modal-popup {
-width: auto; /* 覆蓋默認寬度 */
-height: auto; /* 設定高度為 90vh */
-max-width: 90vw; /* 設定最大高度為 90vh */
-max-height: 90vh; /* 設定最大高度為 90vh */
-padding: 0; /* 移除內邊距 */
-background-color: transparent; /* 背景設置為透明 */
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden; /* 確保圖片超出邊界時不顯示滾動條 */
+  width: auto;
+  height: auto;
+  max-width: 90vw; /* 限制最大宽度为视口的90% */
+  max-height: 90vh; /* 限制最大高度为视口的90% */
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .custom-modal-image {
-max-width: 100%; /* 圖片寬度最大100% */
-max-height: 90vh; /* 圖片高度最大90vh */
-object-fit: contain; /* 確保圖片覆蓋整個模態框，可能會裁剪 */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* 确保图片完整显示 */
 }
-
 </style>
