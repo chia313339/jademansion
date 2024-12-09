@@ -1,13 +1,19 @@
 <template>
   <div>
-    <!-- 當寬度小於或等於 1025px 時只顯示提示訊息 -->
-    <div v-if="showWarning" class="warning-message">
-      請切換大螢幕獲得更好體驗
+    <!-- 當用戶未驗證時顯示密碼輸入框 -->
+    <div v-if="!isAuthenticated" class="password-prompt">
+      <input type="password" v-model="password" placeholder="輸入密碼" />
+      <button @click="authenticate">提交</button>
     </div>
-    <!-- 當寬度大於 1025px 時顯示導航列和內容 -->
+    <!-- 當用戶已驗證時顯示內容 -->
     <div v-else>
-      <Navbar v-if="showNavbar" />
-      <router-view />
+      <div v-if="showWarning" class="warning-message">
+        請切換大螢幕獲得更好體驗
+      </div>
+      <div v-else>
+        <Navbar v-if="showNavbar" />
+        <router-view />
+      </div>
     </div>
   </div>
 </template>
@@ -22,17 +28,16 @@ export default {
   data() {
     return {
       showWarning: false,
+      isAuthenticated: false,
     };
   },
   computed: {
     showNavbar() {
-      // 如果當前路徑不是首頁，顯示導航列
       return this.$route.path !== '/';
     },
   },
   methods: {
     checkWindowSize() {
-      // 當寬度小於或等於 1025px 時顯示提示訊息並禁用滾動
       this.showWarning = window.innerWidth <= 1025;
       if (this.showWarning) {
         document.body.style.overflow = 'hidden';
@@ -40,15 +45,28 @@ export default {
         document.body.style.overflow = '';
       }
     },
+    promptPassword() {
+      const password = prompt('請輸入密碼:');
+      if (password === 'jademansion') {
+        this.isAuthenticated = true;
+        sessionStorage.setItem('isAuthenticated', 'true');
+      } else {
+        alert('密碼錯誤');
+        this.promptPassword(); // 如果密碼錯誤，重新彈出視窗
+      }
+    },
   },
   mounted() {
-    // 初次加載時檢查視窗大小
-    this.checkWindowSize();
-    // 添加視窗大小變化的監聽器
-    window.addEventListener('resize', this.checkWindowSize);
+    this.isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
+    if (!this.isAuthenticated) {
+      this.promptPassword();
+    }
+    if (this.isAuthenticated) {
+      this.checkWindowSize();
+      window.addEventListener('resize', this.checkWindowSize);
+    }
   },
   beforeDestroy() {
-    // 在組件銷毀時移除監聽器並重置滾動
     window.removeEventListener('resize', this.checkWindowSize);
     document.body.style.overflow = '';
   },
@@ -68,5 +86,14 @@ export default {
   z-index: 9999;
   width: 80%;
   max-width: 300px;
+}
+
+.password-prompt {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10000;
 }
 </style>
