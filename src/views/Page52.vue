@@ -1,15 +1,10 @@
 <template>
   <div class="fullwidthbanner-container">
-    <div class="tag-box">
-      <div class="tag">
-        <b>工學品境 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; <span>防水工法</span></b>
-      </div>
-    </div>
     <div class="content">
       <!-- 背景圖 -->
       <img src="/img/p52/bg.png" class="background-image" alt="Background Image" />
       <div class="centered-video" style="top:10%; left:16%; color:#930000;">
-        <span>✦防水保固七年</span>
+        <span>✦防水保固五年</span>
       </div>
       
       <!-- 左邊20%的巢狀清單 -->
@@ -17,8 +12,9 @@
         <ul>
           <li @click="selectItem('窗框防水')" :class="{ active: selectedItem === '窗框防水' }">窗框防水</li>
           <li @click="selectItem('浴室防水')" :class="{ active: selectedItem === '浴室防水' }">浴室防水</li>
-          <li @click="selectItem('陽台防水')" :class="{ active: selectedItem === '陽台防水' }">陽台防水</li>
           <li @click="selectItem('屋頂防水')" :class="{ active: selectedItem === '屋頂防水' }">屋頂防水</li>
+          <li @click="selectItem('陽台防水')" :class="{ active: selectedItem === '陽台防水' }">陽台防水</li>
+          <li @click="selectItem('外牆防水')" :class="{ active: selectedItem === '外牆防水' }">外牆防水</li>
         </ul>
       </div>
       <!-- 右邊80%的動態顯示區 -->
@@ -27,7 +23,7 @@
           <div v-if="selectedItem" >
             <img :src="getImageSrc(selectedItem)" alt="Selected Image" class="centered-image" :key="selectedItem">
             <div  v-if="selectedItem === '浴室防水'">
-              <video src="/img/p52/浴室防水.webm" class="centered-video" style="max-height: 40vh; top:20%; left:50%;" autoplay loop></video>
+              <video src="/img/p52/浴室防水.webm" class="centered-video" style="max-height: 40vh; top:20%; left:40%;" autoplay loop></video>
             </div>
             <div  v-if="selectedItem === '陽台防水'">
               <video src="/img/p52/陽台防水.webm" class="centered-video" style="max-height: 40vh; top:20%; left:50%;" autoplay loop></video>
@@ -137,7 +133,7 @@ li {
 }
 
 li:hover, .active {
-  color: #ff6f00;
+  color: green;
   font-weight: bold;
 }
 

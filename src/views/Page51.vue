@@ -1,226 +1,196 @@
 <template>
   <div class="fullwidthbanner-container">
-    <button class="centered-button">開發中</button>
+    <div class="content">
+      <!-- 背景圖 -->
+      <img src="/img/p51/bg.png" class="background-image" alt="Background Image" />
+      <div class="centered-video" style="top:10%; left:16%; color:#930000;">
+        <span>✦結構保固15年</span>
+      </div>
+      
+      <!-- 左邊20%的巢狀清單 -->
+      <div class="left-panel">
+        <ul>
+          <li @click="selectItem('結構透視')" :class="{ active: selectedItem === '結構透視' }">結構透視</li>
+          <li @click="selectItem('筏式基礎')" :class="{ active: selectedItem === '筏式基礎' }">筏式基礎</li>
+          <li @click="selectItem('SA級鋼筋續接器')" :class="{ active: selectedItem === 'SA級鋼筋續接器' }">SA級鋼筋續接器</li>
+          <li @click="selectItem('鋼筋分隔器')" :class="{ active: selectedItem === '鋼筋分隔器' }">鋼筋分隔器</li>
+          <li @click="selectItem('雙層配筋')" :class="{ active: selectedItem === '雙層配筋' }">雙層配筋</li>
+          <li @click="selectItem('窗框補強')" :class="{ active: selectedItem === '窗框補強' }">窗框補強</li>
+          <li @click="selectItem('樓板開口補強')" :class="{ active: selectedItem === '樓板開口補強' }">樓板開口補強</li>
+          <li @click="selectItem('結構樑補強')" :class="{ active: selectedItem === '結構樑補強' }">結構樑補強</li>
+        </ul>
+      </div>
+      <!-- 右邊80%的動態顯示區 -->
+      <div class="right-panel">
+        <transition name="fade">
+          <div v-if="selectedItem" >
+            <img :src="getImageSrc(selectedItem)" alt="Selected Image" class="centered-image" :key="selectedItem">
+            <div  v-if="selectedItem === '筏式基礎'">
+              <video src="/img/p51/筏式基礎.mp4" class="centered-video" style="max-height: 50vh; top:10%; left:35%;" autoplay loop></video>
+            </div>
+            <div  v-if="selectedItem === '柱筋一筆箍'">
+              <video src="/img/p51/柱筋一筆箍.mp4" class="centered-video" style="max-height: 50vh; top:10%; left:48%;" controls autoplay loop></video>
+            </div>
+            <div  v-if="selectedItem === 'L型'">
+              <video src="/img/p51/L型.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:40%;" controls autoplay loop></video>
+            </div>
+            <div  v-if="selectedItem === 'T型'">
+              <video src="/img/p51/T型.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:40%;" controls autoplay loop></video>
+            </div>
+            <div  v-if="selectedItem === '雙層配筋'">
+              <video src="/img/p51/雙層配筋.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:41%;" controls autoplay loop></video>
+            </div>
+            <div  v-if="selectedItem === '窗框補強'">
+              <video src="/img/p51/窗框補強.mp4" class="centered-video" style="max-height: 50vh; top:18%; left:45%;" controls autoplay loop></video>
+            </div>
+            <div  v-if="selectedItem === '樓板開口補強'">
+              <video src="/img/p51/樓板開口補強.webm" class="centered-video" style="max-height: 50vh; top:20%; left:35%;" controls autoplay loop></video>
+            </div>
+          </div>
+
+        </transition>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { onMounted, nextTick, onBeforeUnmount, ref } from 'vue';
-import { onBeforeRouteUpdate } from 'vue-router';
-import { Carousel } from 'bootstrap';
-import Swal from 'sweetalert2';
+import { ref, onMounted } from 'vue';
 
 export default {
-setup() {
-  const carouselRef = ref(null);
-  const showButton = ref(true);
-  const showOverlayImages = ref(false);
-  const modalImageSrc = ref('/img/p13/bigmap.webp');
+  setup() {
+    const selectedItem = ref(''); // 保存當前選中的項目
+    const showSubmenu = ref(false); // 子選單顯示/隱藏
+    const submenuItems = ['L型', 'T型'];
 
-  const initCarousel = () => {
-    nextTick(() => {
-      const content = document.querySelector('.content');
-      if (content) {
-        content.style.opacity = 0;
-        setTimeout(() => {
-          content.style.opacity = 1;
-        }, 100);
+    // 設置預設為第一個選項 '結構透視'
+    onMounted(() => {
+      selectedItem.value = '結構透視';
+    });
+
+    const selectItem = (item) => {
+      selectedItem.value = item;
+      if (!submenuItems.includes(item)) {
+        showSubmenu.value = false; // 點擊其他主選項時隱藏子選單
       }
+    };
 
-      const carouselElement = document.getElementById('carouselExample');
-      if (carouselElement) {
-        if (carouselRef.value) {
-          carouselRef.value.dispose();
-        }
-        try {
-          carouselRef.value = new Carousel(carouselElement, {
-            interval: 5000000,
-            wrap: true
-          });
-          carouselRef.value.to(0);
+    const toggleSubmenu = () => {
+      showSubmenu.value = !showSubmenu.value;
+    };
 
-          // 監聽輪播圖切換事件
-          carouselElement.addEventListener('slide.bs.carousel', (event) => {
-            showButton.value = event.to === 0; // 只在第一張圖片顯示按鈕
-            showOverlayImages.value = event.to === 3; // 只在第四張圖片顯示覆蓋圖片
-          });
+    const getImageSrc = (item) => {
+      return `/img/p51/${item}.png`; // 根據選項返回對應的圖片路徑
+    };
 
-        } catch (error) {
-          console.error('Error initializing carousel:', error);
-        }
-      } else {
-        console.warn('Carousel element not found');
-      }
-    });
-  };
-
-  const openModal = (imageType) => {
-    modalImageSrc.value = '/img/p21/bigmap.png';
-
-    Swal.fire({
-      imageUrl: modalImageSrc.value,
-      imageAlt: '大圖',
-      width: 'auto',
-      padding: 0,
-      background: '#fff',
-      showCloseButton: true,
-      showConfirmButton: false,
-      focusConfirm: false,
-      customClass: {
-    popup: 'custom-modal-popup',
-    image: 'custom-modal-image'
-  },
-      backdrop: `rgba(0,0,0,0.8)`
-    });
-  };
-
-  onMounted(() => {
-    nextTick(() => {
-      initCarousel();
-    });
-  });
-
-  onBeforeRouteUpdate((to, from, next) => {
-    nextTick(() => {
-      initCarousel();
-    });
-    next();
-  });
-
-  onBeforeUnmount(() => {
-    if (carouselRef.value) {
-      carouselRef.value.dispose();
-    }
-  });
-
-  return {
-    openModal,
-    showButton,
-    showOverlayImages,
-    modalImageSrc
-  };
-}
+    return {
+      selectedItem,
+      showSubmenu,
+      submenuItems,
+      selectItem,
+      toggleSubmenu,
+      getImageSrc,
+    };
+  }
 };
-
 </script>
 
 <style scoped>
-
-.fullwidthbanner-container {
-  background-color: #505653;
+.content {
+  display: flex;
+  position: relative; /* 相對定位，讓背景圖片能在該區域內 */
+  width: 100%;
+  height: 80vh;
 }
 
-.fullwidthbanner-container::before {
-  content: ''; /* 伪元素必须设置 content 才能显示 */
+.background-image {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(158, 158, 158, 0.5); /* 半透明白色，透明度 0.5 */
-  z-index: 1; /* 确保伪元素在背景上 */
-  pointer-events: none; /* 让伪元素不影响点击事件 */
+  width: auto;
+  height: 100vh;
+  object-fit: cover; /* 確保圖片填滿且保持比例 */
+  z-index: -1; /* 設置背景圖在最下層 */
+  margin-top: -8vh;
 }
 
-.content {
-  height: 100vh; 
-  width: 95vw;
+.left-panel {
+  position: relative;
+  width: 20%;
+  padding: 20px;
+  /* background-color: rgba(240, 240, 240, 0.151); 半透明背景 */
+  font-size: 1.2rem;
+  justify-content: top;
+  top: 13vh;
+  margin-left: 30px;
+}
+
+.right-panel {
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
+  padding: 20px;
+  /* background-color: rgba(224, 224, 224, 0.149); 半透明背景 */
+  margin-right: 30px;
 }
 
-.carousel-item img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  margin: 0 auto;
-  position: relative;
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.centered-button {
-  position: absolute;
-  color: #ffffff;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgb(27, 55, 42);
-  border: 0px solid black;
-  border-radius: 0px;
-  padding: 10px 50px;
-  font-size: 1.2em;
+li {
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+li:hover, .active {
+  color: green;
   font-weight: bold;
-  cursor: pointer;
-  z-index: 10;
-  /* animation: fadeInOut 1.5s ease-in-out infinite; */
-  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.5); /* 調整陰影位置與深度 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 增加陰影平滑效果 */
 }
 
-.centered-button:hover{
-  box-shadow: 6px 8px 12px rgba(0, 0, 0, 0.5); /* 增加陰影強度 */
-  font-size: 1.3rem;
+li {
+  font-size: 1.2rem;
 }
 
-@keyframes fadeInOut {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+ul li ul li {
+  font-size: 1rem; /* 子選項的字體大小為1rem */
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: rgba(141, 141, 141, 0.5);
-  border-radius: 50%;
-  padding: 10px;
+ul li ul li:before {
+  content: "→"; /* 子選單前的向右箭頭 */
+  margin-right: 5px;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
+ul > li:not(:has(ul))::before {
+  content: "●"; /* 主選項前的黑點符號 */
+  margin-right: 10px;
 }
 
-.overlay-images {
+ul > li:has(ul) > span::before {
+  content: "●"; /* 將符號放在有子選單的主選項中 */
+  margin-right: 10px;
+}
+
+.centered-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain; /* 保持圖片比例 */
+}
+
+.fade-enter-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from {
+  opacity: 0;
+}
+
+.centered-video {
+  /* transform: translateX(-50%); */
+  max-width: 100%;
+  object-fit: contain; /* 保持影片比例 */
   position: absolute;
-  bottom: 20%;
-  right: 30%;
-  display: flex;
-  gap: 4vw;
-}
-
-.overlay-img {
-  width: 15vw;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.overlay-img:hover {
-  transform: scale(1.1);
-}
-
-.custom-modal-popup {
-width: auto; /* 覆蓋默認寬度 */
-height: auto; /* 設定高度為 90vh */
-max-width: 90vw; /* 設定最大高度為 90vh */
-max-height: 90vh; /* 設定最大高度為 90vh */
-padding: 0; /* 移除內邊距 */
-background-color: transparent; /* 背景設置為透明 */
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden; /* 確保圖片超出邊界時不顯示滾動條 */
-}
-
-.custom-modal-image {
-max-width: 100%; /* 圖片寬度最大100% */
-max-height: 90vh; /* 圖片高度最大90vh */
-object-fit: contain; /* 確保圖片覆蓋整個模態框，可能會裁剪 */
 }
 
 </style>
