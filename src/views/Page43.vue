@@ -77,7 +77,7 @@ export default {
   position: relative;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 2s ease-in-out;
+  transition: opacity 1s ease-in-out;
   width: 90%;
   height: auto;
   z-index: -1;

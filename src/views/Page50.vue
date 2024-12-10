@@ -81,7 +81,7 @@ export default {
   width: 100%; /* 讓內容寬度自適應 */
   height: auto;
   opacity: 0;
-  transition: opacity 2s ease-in-out;
+  transition: opacity 1s ease-in-out;
   flex-wrap: nowrap; /* 禁止換行，強制所有圖片在同一列 */
 }
 

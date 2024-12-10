@@ -50,7 +50,7 @@ export default {
   justify-content: space-between; /* 水平分布 */
   position: relative; /* 使內部元素可以使用絕對定位 */
   opacity: 0; /* 初始状态透明 */
-  transition: opacity 2s ease-in-out; /* 淡入效果 */
+  transition: opacity 1s ease-in-out; /* 淡入效果 */
   width: 90%;
   height: auto; /* 這裡你可以根據需要調整高度 */
   z-index: 1; /* 確保內容在背景圖片之上 */

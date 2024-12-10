@@ -1,43 +1,42 @@
 <template>
   <div class="fullwidthbanner-container">
-    <div class="tag-box">
-      <div class="tag">
-        <b>區域情勢 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 時事新聞</b>
-      </div>
-    </div>
+    
     <div id="carouselExample" class="carousel slide content d-flex align-items-center justify-content-center" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/img/p63/001.png" class="d-block w-70 carousel-img" alt="圖片1">
-          <div class="carousel-caption" >
-            <a href="https://www.ctee.com.tw/news/20240606700193-439901" target="_blank">● 每坪211萬 捷運共構宅現新天價。</a><br>
-            <a href="https://tw.news.yahoo.com/%E6%88%BF%E5%83%B9%E9%A3%86%E6%96%B0%E9%AB%98-%E5%85%AC%E9%A4%A818%E5%B9%B4%E6%8D%B7%E9%81%8B%E5%AE%85%E5%96%AE%E5%9D%AA%E7%AB%99%E4%B8%8A144%E8%90%AC-054013900.html" target="_blank">● 房價飆新高！公館18年捷運宅單坪站上144萬。</a><br>
-            <a href="https://money.udn.com/money/story/5621/8104298" target="_blank">● 捷運三鶯線2026年通車 鶯歌站房價飛漲速度驚人。</a><br>
-            <a href="https://www.taiwanhot.net/news/1068665/5%E5%B9%B4%E6%BC%B24%E6%88%90%EF%BC%81%E6%8D%B7%E9%81%8B%E5%85%B1%E6%A7%8B%E5%AE%85%E3%80%8C%E9%80%99%E7%AB%99%E6%9C%80%E5%85%87%E3%80%8D%E9%9B%99%E5%8C%9710%E5%A4%A7%E6%8E%92%E8%A1%8C%E5%87%BA%E7%88%90" target="_blank">● 5年漲4成！捷運共構宅「這站最兇」雙北10大排行出爐。</a><br>
-          </div>
-          
-        </div>
-        <div class="carousel-item">
-          <img src="/img/p63/002.png" class="d-block w-100 carousel-img" alt="圖片1">
-        </div>
+          <img src="/img/p63/001.png" class="d-block w-100 carousel-img" alt="圖片1">
+          <!-- <button class="overlay-button">文化翡格</button> -->
+          <span class="overlay-button" style="top:50.6%; left:44.5%; color: darkred;">文化翡格</span>
+          <span class="overlay-button" style="top:20.9%; left:46.6%; color: darkblue;" @click="showModal('182175')">文化路二段182巷<br>1弄75號<br>118.1萬</span>
+          <span class="overlay-button" style="top:33.8%; left:42.7%; color: darkblue;" @click="showModal('1823311')">文化路二段182巷<br>3弄31號<br>134.6萬</span>
+          <span class="overlay-button" style="top:30.8%; left:58.5%; color: darkblue;" @click="showModal('1823461')">文化路二段182巷<br>3弄46之1號<br>163.5萬</span>
+          <span class="overlay-button" style="top:46%; left:34.4%; color: darkblue;" @click="showModal('241263117')">文化路二段<br>241號<br>137.8萬</span>
+          <span class="overlay-button" style="top:62.2%; left:39.2%; color: darkblue;" @click="showModal('182316')">文化路二段<br>182巷3弄16號<br>110.9萬</span>
+          <span class="overlay-button" style="top:32.8%; left:70%; color: darkblue;" @click="showModal('821')">雙十路二段82號<br>145萬</span>
+          <span class="overlay-button" style="top:53.3%; left:57.5%; color: darkblue;" @click="showModal('182318')">文化路二段<br>182巷3弄18號<br>102萬</span>
+          <span class="overlay-button" style="top:69.5%; left:52.8%; color: darkblue;" @click="showModal('182510')">文化路二段<br>182巷5弄10號<br>114萬</span>
+          <span class="overlay-button" style="top:60.5%; left:68.8%; color: darkblue;" @click="showModal('421')">雙十路二段42號<br>162萬</span>
 
+        </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
       <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-      </button>
+      </button> -->
     </div>
   </div>
+  
 </template>
 
 <script>
 import { onMounted, nextTick, onBeforeUnmount, ref } from 'vue';
 import { onBeforeRouteUpdate } from 'vue-router';
 import { Carousel } from 'bootstrap';
+import Swal from 'sweetalert2'; 
 
 export default {
   setup() {
@@ -59,17 +58,35 @@ export default {
             carouselRef.value.dispose();
           }
           try {
+            // 初始化 Carousel 並停止自動輪播
             carouselRef.value = new Carousel(carouselElement, {
-              interval: 5000000,
-              wrap: true
+              interval: false, // 停止自動輪播
+              ride: false      // 禁止手動操作後重新啟動輪播
             });
-            carouselRef.value.to(0);
+            carouselRef.value.pause(); // 強制停止輪播
           } catch (error) {
             console.error('Error initializing carousel:', error);
           }
         } else {
           console.warn('Carousel element not found');
         }
+      });
+    };
+
+    const showModal = (name) => {
+      Swal.fire({
+        imageUrl: `/img/p63/${name}.png`, // 动态图片路径
+        imageAlt: name,
+        showCloseButton: true,
+        showConfirmButton: false,
+        width: 'auto',
+        padding: '1em',
+        background: '#fff',
+        imageWidth: 'auto', // 限制图片宽度
+        imageHeight: '80vh', // 保持图片比例
+        backdrop: `
+          rgba(0,0,0,0.4)
+        `
       });
     };
 
@@ -92,28 +109,22 @@ export default {
       }
     });
 
-    return {};
+    return {
+      showModal
+    };
   }
 };
+
 </script>
 
 <style scoped>
-.content {
-  height: 100vh; 
-  width: 95vw;
-  display: flex;
-  align-items: center; /* 垂直居中 */
-  justify-content: center; /* 水平居中 */
-  overflow: hidden; /* 防止图片超出容器 */
-  opacity: 0; /* 初始状态透明 */
-  transition: opacity 2s ease-in-out; /* 淡入效果 */
-}
 
 .carousel-item img {
   max-width: 100%; /* 确保图片宽度不超过容器 */
   max-height: 100%; /* 确保图片高度不超过容器 */
   object-fit: contain; /* 让图片在容器内保持比例缩放 */
   margin: 0 auto; /* 图片居中显示 */
+  z-index: 1;
 }
 
 .carousel-control-prev-icon,
@@ -131,29 +142,24 @@ export default {
   height: 50px; /* 控制按钮大小 */
 }
 
-.carousel-caption {
+
+.overlay-button {
   position: absolute;
-  top: 50%; /* 垂直居中 */
-  left: 50%; /* 水平居中 */
-  transform: translate(-50%, -50%); /* 使用 transform 让元素真正居中 */
-  color: rgb(0, 0, 0); /* 文字颜色设置为黑色 */
-  font-size: 1.3rem; /* 调整文字大小 */
-  z-index: 10; /* 保证文字在图片上方 */
-  width: 50%; /* 设置 caption 宽度，您可以根据需要调整 */
-  display: flex;
-  flex-direction: column; /* 垂直排列链接 */
-  align-items: flex-start; /* 链接靠左对齐 */
-  justify-content: center; /* 垂直居中对齐 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; 
+
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* 平滑过渡效果 */
 }
 
-.carousel-caption a {
-  color: black; /* 设置链接文字为黑色 */
-  text-decoration: none; /* 移除链接底线 */
-  padding: 5px 0; /* 添加一些间距 */
+.overlay-button:hover {
+  transform: translate(-50%, -50%) scale(1.1); /* 放大1.1倍 */
 }
 
-.carousel-caption a:hover {
-  color: gray; /* 当鼠标悬停时，改变链接颜色 */
-}
 
 </style>

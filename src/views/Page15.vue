@@ -93,7 +93,7 @@ export default {
   justify-content: center;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 2s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
 .carousel-item img {

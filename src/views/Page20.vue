@@ -58,7 +58,7 @@ export default {
     gap: 15vw; /* 兩張圖片之間的間距 */
     overflow: hidden; /* 防止图片超出容器 */
     opacity: 0; /* 初始状态透明 */
-    transition: opacity 2s ease-in-out; /* 淡入效果 */
+    transition: opacity 1s ease-in-out; /* 淡入效果 */
 }
 
 .left-container {

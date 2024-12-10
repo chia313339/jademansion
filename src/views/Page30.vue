@@ -55,7 +55,7 @@ export default {
   overflow: hidden;
 }
 .content {
-  transition: opacity 2s ease-in-out; /* 淡入效果 */
+  transition: opacity 1s ease-in-out; /* 淡入效果 */
 }
 
 .diamond-container {

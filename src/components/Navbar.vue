@@ -105,9 +105,9 @@ export default {
                     subLabel: '',
                     link: '/page61', // 直接鏈接
                     subItems: [
-                        // { label: '軌道經濟', link: '/page61' },
-                        // { label: '區域市場', link: '/page62' },
-                        // { label: '時事新聞', link: '/page63' },
+                        { label: '新成屋/預售屋', link: '/page61' },
+                        { label: '中古屋', link: '/page62' },
+                        { label: '店面', link: '/page63' },
                     ],
                 },
             ],
@@ -167,6 +167,8 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+    right: 0;
+    left: auto;
     background-color: rgba(90, 90, 90, 0.7); /* 70% 黑色半透明 */
     z-index: 1; /* 確保偽元素在背景上方 */
 }

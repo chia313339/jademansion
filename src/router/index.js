@@ -65,8 +65,8 @@ const routes = [
   { path: '/page53', component: Page53 },
   { path: '/page54', component: Page54 },
   { path: '/page61', component: Page61 },
-  // { path: '/page62', component: Page62 },
-  // { path: '/page63', component: Page63 },
+  { path: '/page62', component: Page62 },
+  { path: '/page63', component: Page63 },
   // 可以添加更多的路由條目
 ];
 
