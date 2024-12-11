@@ -16,7 +16,7 @@
           <span class="overlay-button" style="top:66.7%; left:35%; color: darkblue;" @click="showModal('昇陽文化廳')">昇陽文化廳<br>79萬</span>
           <span class="overlay-button" style="top:77%; left:29%; color: darkblue;" @click="showModal('捷運陽明')">捷運陽明<br>79.9萬</span>
           <span class="overlay-button" style="top:65.8%; left:56.8%; color: darkblue;" @click="showModal('昇陽天廈')">昇陽天廈<br>80萬</span>
-          <span class="overlay-button" style="top:80.7%; left:49.3%; color: darkblue;" @click="showModal('新巨蛋')">新巨蛋<br>愛94.9萬</span>
+          <span class="overlay-button" style="top:80.7%; left:49.3%; color: darkblue;" @click="showModal('新巨蛋')">新巨蛋<br>94.9萬</span>
         </div>
       </div>
       <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
