@@ -23,13 +23,35 @@
           <div v-if="selectedItem" >
             <img :src="getImageSrc(selectedItem)" alt="Selected Image" class="centered-image" :key="selectedItem">
             <div  v-if="selectedItem === '浴室防水'">
-              <video src="/img/p52/浴室防水.webm" class="centered-video" style="max-height: 40vh; top:20%; left:40%;" autoplay loop></video>
+              <video src="/img/p52/浴室防水.webm" class="centered-video" style="max-height: 50vh; top:12%; left:35%;" autoplay></video>
             </div>
-            <div  v-if="selectedItem === '陽台防水'">
-              <video src="/img/p52/陽台防水.webm" class="centered-video" style="max-height: 40vh; top:20%; left:50%;" autoplay loop></video>
+            <div  v-if="selectedItem === '陽台防水'" class="roof-waterproof-container">
+              <img 
+                src="/img/p52/陽台防水2.png" 
+                class="roof-image" 
+                alt=""
+                @click="openModal('image')"
+              >
+              <video 
+                src="/img/p52/陽台防水.webm" 
+                class="roof-video" 
+                autoplay
+                @click="openModal('video')"
+              ></video>
             </div>
-            <div  v-if="selectedItem === '屋頂防水'">
-              <video src="/img/p52/屋頂防水.webm" class="centered-video" style="max-height: 40vh; top:22%; left:30%;" autoplay loop></video>
+            <div  v-if="selectedItem === '屋頂防水'" class="roof-waterproof-container">
+              <video 
+                src="/img/p52/屋頂防水.webm" 
+                class="roof-video" 
+                autoplay
+                @click="openModal('video')"
+              ></video>
+              <img 
+                src="/img/p52/屋頂防水2.png" 
+                class="roof-image" 
+                alt=""
+                @click="openModal('image')"
+              >
             </div>
           </div>
 
@@ -37,6 +59,25 @@
       </div>
     </div>
 
+    <!-- 新增 Modal -->
+    <div v-if="showModal" class="modal" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <span class="close-button" @click="closeModal">&times;</span>
+        <video 
+          v-if="modalType === 'video'" 
+          :src="getModalVideoSrc()" 
+          class="modal-media" 
+          controls 
+          autoplay
+        ></video>
+        <img 
+          v-else 
+          :src="getModalImageSrc()" 
+          class="modal-media" 
+          alt=""
+        >
+      </div>
+    </div>
   </div>
 </template>
 
@@ -48,6 +89,8 @@ export default {
     const selectedItem = ref(''); // 保存當前選中的項目
     const showSubmenu = ref(false); // 子選單顯示/隱藏
     const submenuItems = ['L型', 'T型'];
+    const showModal = ref(false);
+    const modalType = ref('');
 
     // 設置預設為第一個選項 '窗框防水'
     onMounted(() => {
@@ -69,6 +112,31 @@ export default {
       return `/img/p52/${item}.png`; // 根據選項返回對應的圖片路徑
     };
 
+    const openModal = (type) => {
+      modalType.value = type;
+      showModal.value = true;
+    };
+
+    const closeModal = () => {
+      showModal.value = false;
+    };
+
+    const getModalVideoSrc = () => {
+      if (selectedItem.value === '屋頂防水') {
+        return '/img/p52/屋頂防水.webm';
+      } else if (selectedItem.value === '陽台防水') {
+        return '/img/p52/陽台防水.webm';
+      }
+    };
+
+    const getModalImageSrc = () => {
+      if (selectedItem.value === '屋頂防水') {
+        return '/img/p52/屋頂防水2.png';
+      } else if (selectedItem.value === '陽台防水') {
+        return '/img/p52/陽台防水2.png';
+      }
+    };
+
     return {
       selectedItem,
       showSubmenu,
@@ -76,6 +144,12 @@ export default {
       selectItem,
       toggleSubmenu,
       getImageSrc,
+      showModal,
+      modalType,
+      openModal,
+      closeModal,
+      getModalVideoSrc,
+      getModalImageSrc,
     };
   }
 };
@@ -173,6 +247,13 @@ ul > li:has(ul) > span::before {
   opacity: 0;
 }
 
+
+.inner-img{
+  max-width: 100%;
+  object-fit: contain; /* 保持影片比例 */
+  position: absolute;
+}
+
 .centered-video {
   /* transform: translateX(-50%); */
   max-width: 100%;
@@ -188,5 +269,79 @@ ul > li:has(ul) > span::before {
   z-index: 10; /* 確保文字在最上層 */
   /* 可選：調整文字的字型和其他樣式 */
   font-family: Arial, sans-serif;
+}
+
+.roof-waterproof-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 22%;
+  left: 30%;
+  width: 60%; /* 調整容器寬度 */
+  height: 40vh;
+  gap: 10px; /* 元素之間的間距 */
+}
+
+.roof-image{
+  width: 30%; /* 各佔容器的48%寬度，中間留有間距 */
+  height: 100%;
+  object-fit: contain;
+  position: relative; /* 改為相對定位 */
+}
+
+.roof-video{
+  width: 68%; /* 各佔容器的48%寬度，中間留有間距 */
+  height: 100%;
+  object-fit: contain;
+  position: relative; /* 改為相對定位 */
+}
+
+/* 新增 Modal 相關樣式 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+  background-color: transparent;
+}
+
+.modal-media {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.close-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+.roof-video, .roof-image {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.roof-video:hover, .roof-image:hover {
+  transform: scale(1.05);
 }
 </style>

@@ -20,12 +20,6 @@
             <div  v-if="selectedItem === '當層排氣'">
               <video src="/img/p53/當層排氣.mp4" class="centered-video" style="max-height: 40vh; top:20%; left:40%;" autoplay loop></video>
             </div>
-            <!-- <div  v-if="selectedItem === '陽台防水'">
-              <video src="/img/p52/陽台防水.webm" class="centered-video" style="max-height: 40vh; top:20%; left:50%;" autoplay loop></video>
-            </div>
-            <div  v-if="selectedItem === '屋頂防水'">
-              <video src="/img/p52/屋頂防水.webm" class="centered-video" style="max-height: 40vh; top:22%; left:30%;" autoplay loop></video>
-            </div> -->
           </div>
 
         </transition>

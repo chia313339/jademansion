@@ -30,11 +30,12 @@
         </div>
         <!-- leftitem 選擇 精選建材 -->
         <ul>
-          <li @click="selectItem('元宇宙高科技地板', '精選建材')" :class="{ active: selectedItem === '元宇宙高科技地板' }">元宇宙高科技地板</li>
-          <li @click="selectItem('衛浴配置', '精選建材')" :class="{ active: selectedItem === '衛浴配置' }">衛浴配置</li>
-          <li @click="selectItem('精選廚具', '精選建材')" :class="{ active: selectedItem === '精選廚具' }">精選廚具</li>
           <li @click="selectItem('節能電梯', '精選建材')" :class="{ active: selectedItem === '節能電梯' }">節能電梯</li>
           <li @click="selectItem('隔音氣密窗', '精選建材')" :class="{ active: selectedItem === '隔音氣密窗' }">隔音氣密窗</li>
+          <li @click="selectItem('元宇宙高科技地板', '精選建材')" :class="{ active: selectedItem === '元宇宙高科技地板' }">元宇宙高科技地板</li>
+          <li @click="selectItem('精選廚具', '精選建材')" :class="{ active: selectedItem === '精選廚具' }">精選廚具</li>
+          <li @click="selectItem('衛浴配置', '精選建材')" :class="{ active: selectedItem === '衛浴配置' }">衛浴配置</li>
+          
         </ul>
 
       </div>
@@ -55,6 +56,26 @@
                   </div>
                   <div class="carousel-item">
                     <img src="/img/p54/地板002.png" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            </div>
+            <div  v-if="selectedItem === '智慧建築保全'">
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/img/p54/智慧建築保全1.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/img/p54/智慧建築保全2.png" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">

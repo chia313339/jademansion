@@ -26,25 +26,25 @@
           <div v-if="selectedItem" >
             <img :src="getImageSrc(selectedItem)" alt="Selected Image" class="centered-image" :key="selectedItem">
             <div  v-if="selectedItem === '筏式基礎'">
-              <video src="/img/p51/筏式基礎.mp4" class="centered-video" style="max-height: 50vh; top:10%; left:35%;" autoplay loop></video>
+              <video src="/img/p51/筏式基礎.mp4" class="centered-video" style="max-height: 50vh; top:10%; left:35%;" autoplay></video>
             </div>
             <div  v-if="selectedItem === '柱筋一筆箍'">
-              <video src="/img/p51/柱筋一筆箍.mp4" class="centered-video" style="max-height: 50vh; top:10%; left:48%;" controls autoplay loop></video>
+              <video src="/img/p51/柱筋一筆箍.mp4" class="centered-video" style="max-height: 50vh; top:10%; left:48%;" controls autoplay></video>
             </div>
             <div  v-if="selectedItem === 'L型'">
-              <video src="/img/p51/L型.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:40%;" controls autoplay loop></video>
+              <video src="/img/p51/L型.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:40%;" controls autoplay></video>
             </div>
             <div  v-if="selectedItem === 'T型'">
-              <video src="/img/p51/T型.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:40%;" controls autoplay loop></video>
+              <video src="/img/p51/T型.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:40%;" controls autoplay></video>
             </div>
             <div  v-if="selectedItem === '雙層配筋'">
-              <video src="/img/p51/雙層配筋.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:41%;" controls autoplay loop></video>
+              <video src="/img/p51/雙層配筋.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:41%;" controls autoplay></video>
             </div>
             <div  v-if="selectedItem === '窗框補強'">
-              <video src="/img/p51/窗框補強.mp4" class="centered-video" style="max-height: 50vh; top:18%; left:45%;" controls autoplay loop></video>
+              <video src="/img/p51/窗框補強.mp4" class="centered-video" style="max-height: 50vh; top:18%; left:45%;" controls autoplay></video>
             </div>
             <div  v-if="selectedItem === '樓板開口補強'">
-              <video src="/img/p51/樓板開口補強.webm" class="centered-video" style="max-height: 50vh; top:20%; left:35%;" controls autoplay loop></video>
+              <video src="/img/p51/樓板開口補強.webm" class="centered-video" style="max-height: 50vh; top:20%; left:35%;" controls autoplay></video>
             </div>
           </div>
 

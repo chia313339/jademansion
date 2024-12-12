@@ -11,6 +11,9 @@
         <div class="carousel-item">
           <img src="/img/p41/003.png" class="d-block w-100 carousel-img" alt="圖片2">
         </div>
+        <div class="carousel-item">
+          <img src="/img/p41/004.png" class="d-block w-100 carousel-img" alt="圖片2">
+        </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

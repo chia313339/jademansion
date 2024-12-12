@@ -23,7 +23,7 @@ import Swal from 'sweetalert2';
 
 export default {
   setup() {
-    const floors = ['RF', '6F', '5F', '4F', '3F', '2F', '1F', 'B1F'];
+    const floors = ['RF', '7F', '6F', '5F', '4F', '3F', '2F', '1F', 'B1F'];
     const activeFloor = ref('3F'); // 默认选中3F
 
     const selectFloor = (floor) => {
