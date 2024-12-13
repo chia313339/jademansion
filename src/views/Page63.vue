@@ -7,15 +7,15 @@
           <img src="/img/p63/001.png" class="d-block w-100 carousel-img" alt="圖片1">
           <!-- <button class="overlay-button">文化翡格</button> -->
           <span class="overlay-button" style="top:50.6%; left:44.5%; color: darkred;">文化翡格</span>
-          <span class="overlay-button" style="top:20.9%; left:46.6%; color: darkblue;" @click="showModal('182175')">文化路二段182巷<br>1弄75號<br>118.1萬</span>
-          <span class="overlay-button" style="top:33.8%; left:42.7%; color: darkblue;" @click="showModal('1823311')">文化路二段182巷<br>3弄31號<br>134.6萬</span>
-          <span class="overlay-button" style="top:30.8%; left:58.5%; color: darkblue;" @click="showModal('1823461')">文化路二段182巷<br>3弄46之1號<br>163.5萬</span>
-          <span class="overlay-button" style="top:46%; left:34.4%; color: darkblue;" @click="showModal('241263117')">文化路二段<br>241號<br>137.8萬</span>
-          <span class="overlay-button" style="top:62.2%; left:39.2%; color: darkblue;" @click="showModal('182316')">文化路二段<br>182巷3弄16號<br>110.9萬</span>
-          <span class="overlay-button" style="top:32.8%; left:70%; color: darkblue;" @click="showModal('821')">雙十路二段82號<br>145萬</span>
-          <span class="overlay-button" style="top:53.3%; left:57.5%; color: darkblue;" @click="showModal('182318')">文化路二段<br>182巷3弄18號<br>102萬</span>
-          <span class="overlay-button" style="top:69.5%; left:52.8%; color: darkblue;" @click="showModal('182510')">文化路二段<br>182巷5弄10號<br>114萬</span>
-          <span class="overlay-button" style="top:60.5%; left:68.8%; color: darkblue;" @click="showModal('421')">雙十路二段42號<br>162萬</span>
+          <span class="overlay-button" style="top:21.1%; left:46.6%; color: darkblue;" @click="showModal('182175')">文化路二段182巷<br>1弄75號<br>118.1萬</span>
+          <span class="overlay-button" style="top:34%; left:42.7%; color: darkblue;" @click="showModal('1823311')">文化路二段182巷<br>3弄31號<br>134.6萬</span>
+          <span class="overlay-button" style="top:31%; left:58.5%; color: darkblue;" @click="showModal('1823461')">文化路二段182巷<br>3弄46之1號<br>163.5萬</span>
+          <span class="overlay-button" style="top:46.2%; left:34.4%; color: darkblue;" @click="showModal('241263117')">文化路二段<br>241號<br>137.8萬</span>
+          <span class="overlay-button" style="top:62.4%; left:39.2%; color: darkblue;" @click="showModal('182316')">文化路二段<br>182巷3弄16號<br>110.9萬</span>
+          <span class="overlay-button" style="top:33%; left:70%; color: darkblue;" @click="showModal('821')">雙十路二段82號<br>145萬</span>
+          <span class="overlay-button" style="top:53.5%; left:57.5%; color: darkblue;" @click="showModal('182318')">文化路二段<br>182巷3弄18號<br>102萬</span>
+          <span class="overlay-button" style="top:69.7%; left:52.8%; color: darkblue;" @click="showModal('182510')">文化路二段<br>182巷5弄10號<br>114萬</span>
+          <span class="overlay-button" style="top:60.7%; left:68.8%; color: darkblue;" @click="showModal('421')">雙十路二段42號<br>162萬</span>
 
         </div>
       </div>
@@ -149,7 +149,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center; 
-
+  line-height: 1.2; /* 调整行高，值越小行间距越小 */
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;

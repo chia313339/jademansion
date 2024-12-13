@@ -149,7 +149,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center; 
-
+  line-height: 1.2; /* 调整行高，值越小行间距越小 */
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;

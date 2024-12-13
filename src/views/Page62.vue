@@ -7,11 +7,11 @@
           <img src="/img/p62/001.png" class="d-block w-100 carousel-img" alt="圖片1">
           <!-- <button class="overlay-button">文化翡格</button> -->
           <span class="overlay-button" style="top:58.3%; left:44.8%; color: darkred;">文化翡格</span>
-          <span class="overlay-button" style="top:29.3%; left:47%; color: darkblue;" @click="showModal('文化天下')">文化天下<br>80.59萬</span>
+          <span class="overlay-button" style="top:29.5%; left:47%; color: darkblue;" @click="showModal('文化天下')">文化天下<br>80.59萬</span>
           <span class="overlay-button" style="top:37%; left:61.6%; color: darkblue;" @click="showModal('新富時代')">新富時代<br>78.21萬</span>
           <span class="overlay-button" style="top:27.5%; left:55%; color: darkblue;" @click="showModal('第一天廈')">第一天廈<br>81.55萬</span>
-          <span class="overlay-button" style="top:45.3%; left:45%; color: darkblue;" @click="showModal('悠遊市')">悠遊市<br>84.9萬</span>
-          <span class="overlay-button" style="top:56%; left:56.8%; color: darkblue;" @click="showModal('文化大人國')">文化大人國<br>84.3萬</span>
+          <span class="overlay-button" style="top:45.5%; left:45%; color: darkblue;" @click="showModal('悠遊市')">悠遊市<br>84.9萬</span>
+          <span class="overlay-button" style="top:56.2%; left:56.8%; color: darkblue;" @click="showModal('文化大人國')">文化大人國<br>84.3萬</span>
           <span class="overlay-button" style="top:47.8%; left:57.2%; color: darkblue;" @click="showModal('文化奇蹟')">文化奇蹟<br>93.6萬</span>
           <span class="overlay-button" style="top:66.7%; left:35%; color: darkblue;" @click="showModal('昇陽文化廳')">昇陽文化廳<br>79萬</span>
           <span class="overlay-button" style="top:77%; left:29%; color: darkblue;" @click="showModal('捷運陽明')">捷運陽明<br>79.9萬</span>
@@ -149,7 +149,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center; 
-
+  line-height: 1.2; /* 调整行高，值越小行间距越小 */
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;

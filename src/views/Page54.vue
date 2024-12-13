@@ -91,7 +91,7 @@
             <div v-if="selectedItem === '衛浴配置'">
               <div id="carouselBathroom" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                  <div v-for="i in 11" :key="`bathroom-${i}`" :class="['carousel-item', i === 1 ? 'active' : '']">
+                  <div v-for="i in 13" :key="`bathroom-${i}`" :class="['carousel-item', i === 1 ? 'active' : '']">
                     <img :src="`/img/p54/衛浴${String(i).padStart(3, '0')}.png`" class="d-block w-100" :alt="`衛浴圖片 ${i}`">
                   </div>
                 </div>
@@ -127,7 +127,7 @@
             <div v-if="selectedItem === '節能電梯'">
               <div id="carouselElevator" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                  <div v-for="i in 5" :key="`elevator-${i}`" :class="['carousel-item', i === 1 ? 'active' : '']">
+                  <div v-for="i in 3" :key="`elevator-${i}`" :class="['carousel-item', i === 1 ? 'active' : '']">
                     <img :src="`/img/p54/電梯${String(i).padStart(3, '0')}.png`" class="d-block w-100" :alt="`電梯圖片 ${i}`">
                   </div>
                 </div>
@@ -145,7 +145,7 @@
             <div v-if="selectedItem === '隔音氣密窗'">
               <div id="carouselWindow" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                  <div v-for="i in 6" :key="`window-${i}`" :class="['carousel-item', i === 1 ? 'active' : '']">
+                  <div v-for="i in 5" :key="`window-${i}`" :class="['carousel-item', i === 1 ? 'active' : '']">
                     <img :src="`/img/p54/窗戶${String(i).padStart(3, '0')}.png`" class="d-block w-100" :alt="`窗戶圖片 ${i}`">
                   </div>
                 </div>
