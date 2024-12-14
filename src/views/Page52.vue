@@ -22,9 +22,9 @@
         <transition name="fade">
           <div v-if="selectedItem" >
             <img :src="getImageSrc(selectedItem)" alt="Selected Image" class="centered-image" :key="selectedItem">
-            <div  v-if="selectedItem === '浴室防水'">
+            <!-- <div  v-if="selectedItem === '浴室防水'">
               <video src="/img/p52/浴室防水.webm" class="centered-video" style="max-height: 50vh; top:12%; left:35%;" autoplay></video>
-            </div>
+            </div> -->
             <div  v-if="selectedItem === '陽台防水'" class="roof-waterproof-container">
               <img 
                 src="/img/p52/陽台防水2.png" 
