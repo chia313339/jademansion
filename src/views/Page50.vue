@@ -1,32 +1,38 @@
 <template>
   <div class="fullwidthbanner-container">
     <div class="content">
-        <!-- 4張圖片，使用router-link進行導航 -->
-        <router-link to="/page51" class="circle-link">
-          <div class="circle">
-            <div class="chinese-text">結構工學</div>
-          </div>
-          <div class="english-text">STRUCTURE</div>
-        </router-link>
-        <router-link to="/page52" class="circle-link">
-          <div class="circle">
-            <div class="chinese-text">防水工學</div>
-          </div>
-          <div class="english-text">WATER PROOF</div>
-        </router-link>
-        <router-link to="/page53" class="circle-link">
-          <div class="circle">
-            <div class="chinese-text">管線工學</div>
-          </div>
-          <div class="english-text">PIPELINE</div>
-        </router-link>
-        <router-link to="/page54" class="circle-link">
-          <div class="circle">
-            <div class="chinese-text">建材工學</div>
-          </div>
-          <div class="english-text">BUILDING MATERIALS</div>
-        </router-link>
-    </div>
+    <!-- 5張圖片，使用router-link進行導航 -->
+      <router-link to="/page51" class="circle-link">
+        <div class="circle" style="background-image: url('/img/p50/001.png');">
+          <div class="chinese-text">結構工學</div>
+        </div>
+        <div class="english-text">STRUCTURE</div>
+      </router-link>
+      <router-link to="/page52" class="circle-link">
+        <div class="circle" style="background-image: url('/img/p50/002.png');">
+          <div class="chinese-text">防水工學</div>
+        </div>
+        <div class="english-text">WATER PROOF</div>
+      </router-link>
+      <router-link to="/page53" class="circle-link">
+        <div class="circle" style="background-image: url('/img/p50/003.png');">
+          <div class="chinese-text">管線工學</div>
+        </div>
+        <div class="english-text">PIPELINE</div>
+      </router-link>
+      <router-link to="/page54" class="circle-link">
+        <div class="circle" style="background-image: url('/img/p50/004.png');">
+          <div class="chinese-text">數位工學</div>
+        </div>
+        <div class="english-text">DIGITAL</div>
+      </router-link>
+      <router-link to="/page55" class="circle-link">
+        <div class="circle" style="background-image: url('/img/p50/005.png');">
+          <div class="chinese-text">精選建材</div>
+        </div>
+        <div class="english-text">BUILDING MATERIALS</div>
+      </router-link>
+  </div>
 
   </div>
 </template>
@@ -97,7 +103,10 @@ export default {
 .circle {
   width: 230px;
   height: 230px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4); /* 黑色0.8的半透明遮罩 */
+  background-blend-mode: overlay; /* 使遮罩与背景图片混合 */
+  background-position: center; /* 图片居中 */
+  background-size: 150%;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -114,6 +123,7 @@ export default {
   color: white;
   font-size: 2rem;
   text-align: center;
+  font-weight:bold;
 }
 
 .english-text {

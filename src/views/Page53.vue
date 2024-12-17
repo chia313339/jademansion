@@ -18,7 +18,7 @@
           <div v-if="selectedItem" >
             <img :src="getImageSrc(selectedItem)" alt="Selected Image" class="centered-image" :key="selectedItem">
             <div  v-if="selectedItem === '當層排氣'">
-              <video src="/img/p53/當層排氣.mp4" class="centered-video" style="max-height: 40vh; top:20%; left:40%;" autoplay loop></video>
+              <video src="/img/p53/當層排氣.mp4" class="centered-video" style="max-height: 40vh; top:20%; left:40%;" autoplay></video>
             </div>
           </div>
 

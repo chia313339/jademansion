@@ -8,34 +8,12 @@
 
       <!-- 左邊20%的巢狀清單 -->
       <div class="left-panel">
-        <div class="leftitem">
-          <span 
-            style="font-size: 1.2rem;" 
-            :class="{ active: selectedCategory === '數位工學' }"
-          >● 數位工學</span>
-        </div>
+
         <!-- leftitem 選擇 數位工學 -->
         <ul> 
           <li @click="selectItem('FTTH光纖到府', '數位工學')" :class="{ active: selectedItem === 'FTTH光纖到府' }">FTTH光纖到府</li>
           <li @click="selectItem('智慧建築保全', '數位工學')" :class="{ active: selectedItem === '智慧建築保全' }">智慧建築保全</li>
-          <!-- <li @click="selectItem('雲端守護服務', '數位工學')" :class="{ active: selectedItem === '雲端守護服務' }">雲端守護服務</li> -->
           <li @click="selectItem('VOC電子鎖', '數位工學')" :class="{ active: selectedItem === 'VOC電子鎖' }">VOC電子鎖</li>
-        </ul>
-        
-        <div class="leftitem">
-          <span 
-            style="font-size: 1.2rem;" 
-            :class="{ active: selectedCategory === '精選建材' }"
-          >● 精選建材</span>
-        </div>
-        <!-- leftitem 選擇 精選建材 -->
-        <ul>
-          <li @click="selectItem('節能電梯', '精選建材')" :class="{ active: selectedItem === '節能電梯' }">節能電梯</li>
-          <li @click="selectItem('隔音氣密窗', '精選建材')" :class="{ active: selectedItem === '隔音氣密窗' }">隔音氣密窗</li>
-          <li @click="selectItem('元宇宙高科技地板', '精選建材')" :class="{ active: selectedItem === '元宇宙高科技地板' }">元宇宙高科技地板</li>
-          <li @click="selectItem('精選廚具', '精選建材')" :class="{ active: selectedItem === '精選廚具' }">精選廚具</li>
-          <li @click="selectItem('衛浴配置', '精選建材')" :class="{ active: selectedItem === '衛浴配置' }">衛浴配置</li>
-          
         </ul>
 
       </div>
@@ -47,26 +25,6 @@
             <img :src="getImageSrc(selectedItem)" alt="Selected Image" class="centered-image" :key="selectedItem" />
             <div  v-if="selectedItem === 'FTTH光纖到府'">
               <video src="/img/p53/光纖網路.mp4" class="centered-video" style="max-height: 50vh; top:15%; left:45%;" autoplay loop></video>
-            </div>
-            <div  v-if="selectedItem === '元宇宙高科技地板'">
-              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="/img/p54/地板001.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="/img/p54/地板002.png" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-                </div>
             </div>
             <div  v-if="selectedItem === '智慧建築保全'">
               <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -88,77 +46,7 @@
                 </button>
                 </div>
             </div>
-            <div v-if="selectedItem === '衛浴配置'">
-              <div id="carouselBathroom" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div v-for="i in 13" :key="`bathroom-${i}`" :class="['carousel-item', i === 1 ? 'active' : '']">
-                    <img :src="`/img/p54/衛浴${String(i).padStart(3, '0')}.png`" class="d-block w-100" :alt="`衛浴圖片 ${i}`">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselBathroom" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselBathroom" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            </div>
 
-            <div v-if="selectedItem === '精選廚具'">
-              <div id="carouselKitchen" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div v-for="i in 6" :key="`kitchen-${i}`" :class="['carousel-item', i === 1 ? 'active' : '']">
-                    <img :src="`/img/p54/廚具${String(i).padStart(3, '0')}.png`" class="d-block w-100" :alt="`廚具圖片 ${i}`">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselKitchen" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselKitchen" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            </div>
-
-            <div v-if="selectedItem === '節能電梯'">
-              <div id="carouselElevator" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div v-for="i in 3" :key="`elevator-${i}`" :class="['carousel-item', i === 1 ? 'active' : '']">
-                    <img :src="`/img/p54/電梯${String(i).padStart(3, '0')}.png`" class="d-block w-100" :alt="`電梯圖片 ${i}`">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselElevator" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselElevator" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            </div>
-
-            <div v-if="selectedItem === '隔音氣密窗'">
-              <div id="carouselWindow" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div v-for="i in 5" :key="`window-${i}`" :class="['carousel-item', i === 1 ? 'active' : '']">
-                    <img :src="`/img/p54/窗戶${String(i).padStart(3, '0')}.png`" class="d-block w-100" :alt="`窗戶圖片 ${i}`">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselWindow" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselWindow" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            </div>
           </div>
           
         </transition>
@@ -265,12 +153,12 @@ li {
 }
 
 ul > li:not(:has(ul))::before {
-  content: "→"; /* 主選項前的黑點符號 */
+  content: "●"; /* 主選項前的黑點符號 */
   margin-right: 10px;
 }
 
 ul > li:has(ul) > span::before {
-  content: "→"; /* 將符號放在有子選單的主選項中 */
+  content: "●"; /* 將符號放在有子選單的主選項中 */
   margin-right: 10px;
 }
 

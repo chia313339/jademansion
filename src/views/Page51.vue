@@ -38,7 +38,7 @@
               <video src="/img/p51/T型.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:40%;" controls autoplay></video>
             </div>
             <div  v-if="selectedItem === '雙層配筋'">
-              <video src="/img/p51/雙層配筋.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:41%;" controls autoplay></video>
+              <video src="/img/p51/雙層配筋.mp4" class="centered-video" style="max-height: 50vh; top:20%; left:41%;" controls autoplay></video>
             </div>
             <div  v-if="selectedItem === '窗框補強'">
               <video src="/img/p51/窗框補強.mp4" class="centered-video" style="max-height: 50vh; top:18%; left:45%;" controls autoplay></video>

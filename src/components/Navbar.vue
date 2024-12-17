@@ -97,7 +97,8 @@ export default {
                         { label: '結構工學', link: '/page51' },
                         { label: '防水工程', link: '/page52' },
                         { label: '管線工學', link: '/page53' },
-                        { label: '建材工學', link: '/page54' },
+                        { label: '數位工學', link: '/page54' },
+                        { label: '精選建材', link: '/page55' },
                     ],
                 },
                 {
