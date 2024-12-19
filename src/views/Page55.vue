@@ -74,7 +74,6 @@ export default {
         "/img/p55/窗戶002.png",
         "/img/p55/窗戶003.png",
         "/img/p55/窗戶004.png",
-        "/img/p55/窗戶005.png",
       ],
       floor: [
         "/img/p55/地板001.png",

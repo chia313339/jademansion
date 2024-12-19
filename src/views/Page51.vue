@@ -31,12 +31,6 @@
             <div  v-if="selectedItem === '柱筋一筆箍'">
               <video src="/img/p51/柱筋一筆箍.mp4" class="centered-video" style="max-height: 50vh; top:10%; left:48%;" controls autoplay></video>
             </div>
-            <div  v-if="selectedItem === 'L型'">
-              <video src="/img/p51/L型.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:40%;" controls autoplay></video>
-            </div>
-            <div  v-if="selectedItem === 'T型'">
-              <video src="/img/p51/T型.mp4" class="centered-video" style="max-height: 45vh; top:20%; left:40%;" controls autoplay></video>
-            </div>
             <div  v-if="selectedItem === '雙層配筋'">
               <video src="/img/p51/雙層配筋.mp4" class="centered-video" style="max-height: 50vh; top:20%; left:41%;" controls autoplay></video>
             </div>
