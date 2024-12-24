@@ -82,13 +82,16 @@ export default {
   display: flex;
   justify-content: center; /* 水平置中 */
   align-items: center; /* 垂直置中 */
-  gap: 1vw; /* 圖片之間的間距 */
+  gap: 0.2vw; /* 圖片之間的間距 */
   flex-wrap: wrap; /* 讓圖片自動換行，如果屏幕太小 */
   width: 100%; /* 讓內容寬度自適應 */
   height: auto;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   flex-wrap: nowrap; /* 禁止換行，強制所有圖片在同一列 */
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: 10vh;
 }
 
 
@@ -101,8 +104,8 @@ export default {
 }
 
 .circle {
-  width: 230px;
-  height: 230px;
+  width: 15vw;
+  height: 15vw;
   background-color: rgba(0, 0, 0, 0.4); /* 黑色0.8的半透明遮罩 */
   background-blend-mode: overlay; /* 使遮罩与背景图片混合 */
   background-position: center; /* 图片居中 */

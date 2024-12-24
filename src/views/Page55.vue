@@ -86,6 +86,8 @@ export default {
         "/img/p55/廚具004.png",
         "/img/p55/廚具005.png",
         "/img/p55/廚具006.png",
+        "/img/p55/廚具007.png",
+        "/img/p55/廚具008.png",
       ],
       bathroom: [
         "/img/p55/衛浴001.png",
@@ -197,6 +199,9 @@ export default {
   opacity: 0;
   transition: opacity 1s ease-in-out;
   flex-wrap: nowrap; /* 禁止換行，強制所有圖片在同一列 */
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: 10vh;
 }
 
 
@@ -209,8 +214,8 @@ export default {
 }
 
 .circle {
-  width: 230px;
-  height: 230px;
+  width: 15vw;
+  height: 15vw;
   background-color: rgba(0, 0, 0, 0.4); /* 黑色0.8的半透明遮罩 */
   background-blend-mode: overlay; /* 使遮罩与背景图片混合 */
   background-position: center; /* 图片居中 */
